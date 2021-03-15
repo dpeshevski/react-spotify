@@ -21,13 +21,12 @@ const initialState = {
 
 function appReducer(state = initialState, action) {
   switch (action.type) {
-    case APP_SET_TITLE: {
+    case APP_SET_TITLE:
       return {
         ...state,
         title: action.data
       };
-    }
-    case APP_SET_SPOTIFY_CREDENTIALS_LOADING: {
+    case APP_SET_SPOTIFY_CREDENTIALS_LOADING:
       return {
         ...state,
         spotifyCredentials: {
@@ -36,8 +35,7 @@ function appReducer(state = initialState, action) {
           error: null,
         }
       };
-    }
-    case APP_SET_SPOTIFY_CREDENTIALS_SUCCESS: {
+    case APP_SET_SPOTIFY_CREDENTIALS_SUCCESS:
       if (typeof window.__APP_SPOTIFY__ !== 'undefined') {
         window.__APP_SPOTIFY__ = action.data;
       }
@@ -51,8 +49,7 @@ function appReducer(state = initialState, action) {
           authenticated: true,
         }
       };
-    }
-    case APP_SET_SPOTIFY_CREDENTIALS_ERROR: {
+    case APP_SET_SPOTIFY_CREDENTIALS_ERROR:
       return {
         ...state,
         spotifyCredentials: {
@@ -61,7 +58,6 @@ function appReducer(state = initialState, action) {
           error: action.error,
         }
       };
-    }
     default:
       return state;
   }

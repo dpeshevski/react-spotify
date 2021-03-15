@@ -48,13 +48,11 @@ function accountReducer(state = initialState, action) {
         },
         userData: initialState.userData,
       };
-    ;
     case ACCOUNT_SIGNUP_SUCCESS:
       let accountData = action.data;
       if (typeof document !== 'undefined') {
         document.cookie = `accessToken=${accountData.accessToken}; path=/`;
       }
-
       return {
         ...state,
         signup: {
@@ -76,7 +74,6 @@ function accountReducer(state = initialState, action) {
         authenticated: true,
         verified: true,
       };
-    ;
     case ACCOUNT_SIGNUP_ERROR:
       return {
         ...state,
@@ -87,7 +84,6 @@ function accountReducer(state = initialState, action) {
         },
         userData: initialState.userData,
       };
-    ;
     case ACCOUNT_SIGNIN_LOADING: 
       return {
         ...state,
@@ -97,8 +93,7 @@ function accountReducer(state = initialState, action) {
           error: null,
         }
       }
-    ;
-    case ACCOUNT_SIGNIN_SUCCESS: {
+    case ACCOUNT_SIGNIN_SUCCESS:
       const { data } = action;
 
       if (typeof document !== 'undefined') {
@@ -126,7 +121,6 @@ function accountReducer(state = initialState, action) {
         authenticated: true,
         verified: true,
       }
-    };
     case ACCOUNT_SIGNIN_ERROR:
       return {
         ...state,
@@ -136,11 +130,9 @@ function accountReducer(state = initialState, action) {
           error: action.error
         },
       }
-    ;
     case ACCOUNT_SET_LOGOUT:
       document.cookie = `accessToken=; expires=0; path=/;`;
       return initialState;
-    ;
     default:
       return state;
   }

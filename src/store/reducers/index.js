@@ -20,6 +20,6 @@ export default (state, action) => {
   return {
     app: appReducer(stateForKey(state, 'app'), action),
     account: accountReducer(stateForKey(s, 'account'), action),
-    albums: albumsReducer(stateForKey(s, 'albums'),action),
+    albums: albumsReducer(stateForKey(s, 'albums'), action),
   };
 };
