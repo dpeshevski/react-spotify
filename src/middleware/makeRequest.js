@@ -32,7 +32,7 @@ export default (path, requestOptions) => {
           .then(data => resolve(data))
           .catch(error => resolve({}));
       } else {
-        return response.text().then((text = ' Unknown error.') => reject(new Error(text)));
+        return response.text().then((text = ' Error.') => reject(new Error(text)));
       }
     })
     .catch(error => reject(error));

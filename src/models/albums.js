@@ -2,30 +2,25 @@ import config from '../config';
 
 import makeRequest from '../middleware/makeRequest';
 
+const {
+  api: { baseUrl },
+  endpoints: {
+    newReleased: newReleasedPath,
+    featuredPlaylists: featuredPlaylistsPath,
+    categories: categoriesPath
+  }
+} = config;
+
 function newReleased() {
-  const {
-    api: { baseUrl },
-    endpoints: { newReleased }
-  } = config;
-  return makeRequest(`${baseUrl}/browse/${newReleased}`, { method: 'GET' });
+  return makeRequest(`${baseUrl}/browse/${newReleasedPath}`, { method: 'GET' });
 }
 
 function featuredPlaylists() {
-  const {
-    api: { baseUrl },
-    endpoints: { featuredPlaylists }
-  } = config;
-
-  return makeRequest(`${baseUrl}/browse/${featuredPlaylists}`, { method: 'GET' });
+  return makeRequest(`${baseUrl}/browse/${featuredPlaylistsPath}`, { method: 'GET' });
 }
 
 function categories() {
-  const {
-    api: { baseUrl },
-    endpoints: { categories }
-  } = config;
-
-  return makeRequest(`${baseUrl}/browse/${categories}`, { method: 'GET' });
+  return makeRequest(`${baseUrl}/browse/${categoriesPath}`, { method: 'GET' });
 }
 
 export {
