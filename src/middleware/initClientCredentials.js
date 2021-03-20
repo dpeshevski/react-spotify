@@ -12,7 +12,7 @@ export default () => {
   return new Promise((resolve, reject) => {
     fetch(`${authUrl}`, {
       headers: {
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/x-www-form-urlencoded',
         'Authorization': `Basic ${encodedAuth}`
       },
       method: 'POST',
@@ -24,7 +24,7 @@ export default () => {
           .then(data => resolve(data))
           .catch(error => resolve({}));
       } else {
-        return response.text().then((text = 'Unknown error.') => reject(new Error(text)));
+        return response.text().then((text = ' Error.') => reject(new Error(text)));
       }
     })
     .catch(error => reject(error));
